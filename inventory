@@ -5,9 +5,9 @@ ansible_network_os=junos
 ansible_connection=network_cli
 
 [spine]
-PNHPNH-DX-SPN01 ansible_host=172.16.83.150
-PNHPNH-DX-SPN02 ansible_host=172.16.83.151
+SPN01 ansible_host=172.16.83.150 hostname=PNHPNH-DX-SPN01 
+SPN02 ansible_host=172.16.83.151 hostname=PNHPNH-DX-SPN02
 
 [leaf]
-PNHPNH-DX-LEF01 ansible_host=172.16.83.152
-PNHPNH-DX-LEF02 ansible_host=172.16.83.153
+LEF01 ansible_host=172.16.83.152 hostname=PNHPNH-DX-LEF01 
+LEF02 ansible_host=172.16.83.153 hostname=PNHPNH-DX-LEF02

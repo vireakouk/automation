@@ -5,13 +5,20 @@
   tasks:
     - name: Retrieve get_facts, get_interfaces
       napalm_get_facts:
-        filter: facts,interfaces,users
-    - debug:
-        var: napalm_users
-    # - name: show commands
-    #   napalm_cli:
-    #     args:
-    #       commands:
-    #         - show version
-    #         - show chassis hardware
-    #         - show interfaces terse | grep up
+        filter: ['arp_table','users','environment']
+      register: result
+    - name: Print facts result
+      debug: var=result
+    - name: Test cli
+      napalm_cli:
+        args:
+          commands:
+            - show chassis hardware
+            - show version
+    - name: Test Ping
+      napalm_ping:
+        destination: 8.8.8.8
+        count: '2'
+      register: result
+    - name: Print ping result
+      debug: var=result

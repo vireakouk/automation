@@ -1,0 +1,14 @@
+[all:vars]
+#network_os required
+ansible_network_os=junos
+username=vireak
+password=&yubxt1xcv
+dev_os=junos
+
+[spine]
+SPN01 host=172.16.83.150 hostname=PNHPNH-DX-SPN01 
+SPN02 host=172.16.83.151 hostname=PNHPNH-DX-SPN02
+
+[leaf]
+LEF01 host=172.16.83.152 hostname=PNHPNH-DX-LEF01 
+LEF02 host=172.16.83.153 hostname=PNHPNH-DX-LEF02

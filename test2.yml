@@ -1,0 +1,33 @@
+---
+- name: Display basic show commands
+  hosts: spine,leaf
+  gather_facts: False
+  connection: network_cli #required
+  vars:
+    junos_provider:
+      hostname: "{{ host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      dev_os: "{{ dev_os }}"
+  
+  tasks:
+    - name: Task1>Display some show commands
+      napalm_cli:
+        provider: "{{ junos_provider }}"
+        args:
+          commands:
+            - show version
+            - show arp
+            #- show chassis hardware
+      register: result
+    - name: Task2>Print result
+      debug: var=result
+    - name: Task3>Try some pings
+      napalm_ping:
+        provider: "{{ junos_provider }}"
+        destination: 8.8.8.8
+        count: '10'
+      register: ping_result
+    - name: Task4>Another way to print result
+      debug:
+        msg: "{{ ping_result }}"
