@@ -1,0 +1,13 @@
+[all:vars]
+ansible_user=vireak
+ansible_ssh_pass=&yubxt1xcv
+ansible_network_os=junos
+ansible_connection=network_cli
+
+[spine]
+PNHPNH-DX-SPN01 ansible_host=172.16.83.150
+PNHPNH-DX-SPN02 ansible_host=172.16.83.151
+
+[leaf]
+PNHPNH-DX-LEF01 ansible_host=172.16.83.152
+PNHPNH-DX-LEF02 ansible_host=172.16.83.153

@@ -4,9 +4,12 @@ from pprint import pprint
 from getpass import getpass
 
 my_juniper = {
-    'hostname': '43.245.201.4',
+    'hostname': '172.16.83.150',
     'username': 'vireak',
-    'password': getpass()
+    'password': getpass(),
+    'optional_args':{
+        'port': 22
+        },
     }
     
 driver = napalm.get_network_driver('junos')
@@ -20,8 +23,8 @@ with driver(**my_juniper) as device:
     #     # pprint(device.get_environment())
     #     json.dump(device.get_environment(), json_file, indent=4)
         # pprint(device.get_bgp_neighbors())
-    commands = ['show interfaces descriptions | grep up','show version']
+    commands = ['show interfaces terse | grep up','show version']
     output = device.cli(commands)
-    print(output['show interfaces descriptions | grep up'])
+    print(output['show interfaces terse | grep up'])
     print(output['show version'])
 

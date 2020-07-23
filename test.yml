@@ -1,0 +1,17 @@
+---
+- name: Test Ansible Config
+  hosts: spine, leaf
+  gather_facts: False
+  tasks:
+    - name: Retrieve get_facts, get_interfaces
+      napalm_get_facts:
+        filter: facts,interfaces,users
+    - debug:
+        var: napalm_users
+    # - name: show commands
+    #   napalm_cli:
+    #     args:
+    #       commands:
+    #         - show version
+    #         - show chassis hardware
+    #         - show interfaces terse | grep up
