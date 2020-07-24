@@ -16,18 +16,20 @@
         provider: "{{ junos_provider }}"
         args:
           commands:
-            - show version
+            #- show version
             - show arp
             #- show chassis hardware
       register: result
     - name: Task2>Print result
-      debug: var=result
+      debug:
+        msg: "{{ (result.cli_results['show arp']).split('\n')}}"
+        #msg: "{{ result | json_query('cli_results['show arp']') }}"
     - name: Task3>Try some pings
       napalm_ping:
         provider: "{{ junos_provider }}"
         destination: 8.8.8.8
-        count: '10'
-      register: ping_result
+        count: '2'
+      register: ping
     - name: Task4>Another way to print result
       debug:
-        msg: "{{ ping_result }}"
+        msg: "{{ ping.ping_results | json_query('success.results[*].rtt') }}"
