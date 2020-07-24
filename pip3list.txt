@@ -1,5 +1,6 @@
 Package                Version
 ---------------------- -------------
+dummy_module           1.0.0
 ansible                2.9.10
 attrs                  19.3.0
 Automat                0.8.0
