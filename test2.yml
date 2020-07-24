@@ -23,7 +23,6 @@
     - name: Task2>Print result
       debug:
         msg: "{{ (result.cli_results['show arp']).split('\n')}}"
-        #msg: "{{ result | json_query('cli_results['show arp']') }}"
     - name: Task3>Try some pings
       napalm_ping:
         provider: "{{ junos_provider }}"
