@@ -1,0 +1,16 @@
+#useful commands
+
+#install new python package
+python -m pip install package_name
+
+#upgrade pip
+python -m pip install --upgrade pip
+
+#list all python packages
+python -m pip list
+
+#upgrade specific package
+python -m pip install --upgrade package_name
+
+#ansible deploy config to devices in inventory
+ansible-playbook -i inventory deploy_config.yaml
