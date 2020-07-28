@@ -5,6 +5,14 @@ username=vireak
 password=&yubxt1xcv
 dev_os=junos
 
+###########################
+## Group by roles        ##
+###########################
+
+[all:children]
+spine
+leaf
+
 [spine]
 SPN01 host=172.16.83.150 hostname=PNHPNH-DX-SPN01 
 SPN02 host=172.16.83.151 hostname=PNHPNH-DX-SPN02
@@ -12,3 +20,49 @@ SPN02 host=172.16.83.151 hostname=PNHPNH-DX-SPN02
 [leaf]
 LEF01 host=172.16.83.152 hostname=PNHPNH-DX-LEF01 
 LEF02 host=172.16.83.153 hostname=PNHPNH-DX-LEF02
+
+###########################
+## Group by location     ##
+###########################
+
+[pod1]
+SPN01
+LEF01
+
+[pod2]
+SPN02
+LEF02
+
+###########################
+## Group by model        ##
+###########################
+
+[qfx-10k]
+SPN01
+SPN02
+LEF01
+LEF02
+
+[mx204]
+# no devices
+
+[qfx-5k]
+# no devices
+
+###########################
+## Group by OS           ##
+###########################
+
+[junos]
+SPN01
+SPN02
+LEF01
+LEF02
+
+[nxos]
+# Cisco nxos
+# no devices
+
+[eos]
+# Arista eos
+# no devices
