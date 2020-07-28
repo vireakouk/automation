@@ -3,11 +3,10 @@
 from hashlib import sha512
 from getpass import getpass
 
-h = sha512()
 print('Input your plain text password below!')
 plaintext_pwd = getpass()
 
+h = sha512()
 h.update(plaintext_pwd.encode())
 hash_str = h.hexdigest()
-print('This is your encrypted password using sha512 method:')
-print(hash_str)
+print('This is your encrypted password using sha512 method:', hash_str)

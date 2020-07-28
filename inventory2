@@ -37,7 +37,7 @@ LEF02
 ## Group by model        ##
 ###########################
 
-[qfx-10k]
+[qfx10k]
 SPN01
 SPN02
 LEF01
@@ -46,7 +46,7 @@ LEF02
 [mx204]
 # no devices
 
-[qfx-5k]
+[qfx5k]
 # no devices
 
 ###########################
