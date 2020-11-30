@@ -2,7 +2,7 @@
 #network_os required
 ansible_network_os=junos
 username=vireak
-password=&yubxt1xcv
+password=somepassword
 dev_os=junos
 
 ###########################
